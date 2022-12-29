@@ -1,0 +1,39 @@
+import json
+
+user_name = {
+"people":
+     [
+     {
+
+
+     "firstname ":"anna",
+     "lastname  ":" kale",
+     "email":"kale.anna@gmail.com",
+     "mobile":7755855965,
+     "address":"evergreen society"
+     },
+{
+
+    "firstname ":"ved",
+     "lastname  ":" kale",
+     "email" : "kale.ved@gmail.com",
+         "mobile":7755855965,
+     "address":"seaface society"
+},
+     {
+         "firstname ":"sunil",
+     "lastname  ":" kale",
+     "email" : "kale.sunil@gmail.com",
+              "mobile":7755855965,
+     "address":"panvel society"
+
+}
+
+
+
+     ]}
+
+json_string = json.dumps(user_name, indent=1)
+with open ('mydata.json', 'w') as f:
+    f.write(json_string)
+    
