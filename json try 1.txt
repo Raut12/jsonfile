@@ -1,0 +1,84 @@
+import json
+
+with open ('mydata.json', 'r') as f:
+    json_object = json.loads(f.read())
+
+def choices():
+    print ("user names")
+    print ("(1) view data")
+    print ("(2) add data")
+    print ("(3) delete data")
+    print ("(4) exit data")                              
+
+def view_data():
+    with open ('mydata.json', "r") as f:
+        temp = json.load(f)
+        i=0
+        for entry in temp:
+            name = entry("firstname")
+            lastname = entry["lastname"]
+            email=entry["email"]
+            mobile= entry["mobile"]
+            address= entry["address"]
+
+            print(f"index number {i} ")
+            print(f"users name:{name} ")
+            print(f"user last name: {lastname} ")
+            print(f"user email: {email} ")
+            print(f"user mobile number: {mobile} ")
+            print(f"user address: {address} ")
+            print("\n\n")
+            i=i+1
+             
+def delete_data():
+        new_data = []
+        with open ('mydata.json', 'r') as f:
+            temp = json.load(f)
+            data_length = len(temp)-1
+            print ("which index number would you delete?")
+            delete_option = input("select a number from 0-{data_length}")
+            i = 0
+            for entry in temp:
+                if i== int(delete_option):
+                    pass
+                    i=i+1
+                else:
+                    new_data.append(entry)
+                    i=i+1
+                    with open ('mydata.json', "w") as f:
+                        json.dump(new_data, f)
+
+
+def add_data():
+        item_data = {}
+        with open ('mydata.json', 'r') as f:
+            temp = json.load(f)
+            item_data["name"] = input("user name: ")
+            item_data["name"] = input("user last name: ")
+            item_data["name"] = input("user email: ")
+            item_data["name"] = input("user mobile number: ")
+            item_data["name"] = input("user address: ")
+            temp.append(item_data)
+            with open ('mydata.json', "w") as f:
+                jason.dump(temp, f, indent=4)
+
+
+while True:
+    choices()
+    choice = input("enternumber:")
+    if choice == "1":
+        view_data()
+    elif choice == "2":
+        add_data()
+    elif choice == "3":
+        delete_data()
+    elif choice == "4":
+        break
+    else:
+        print("oops wrong option selected")
+                
+
+
+
+    
+print(json_object['people'])
